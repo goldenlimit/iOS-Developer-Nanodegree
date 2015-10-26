@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F3B4A25C1BD2C7EE0001FBA8 /* movie_quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3B4A25B1BD2C7EE0001FBA8 /* movie_quote.mp3 */; };
 		F3B4A25E1BD2D6BE0001FBA8 /* PlaySoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B4A25D1BD2D6BE0001FBA8 /* PlaySoundViewController.swift */; };
 		F3CAD2A41BD9B52E00A0D799 /* RecordedAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CAD2A31BD9B52E00A0D799 /* RecordedAudio.swift */; };
 		F3CAD2E31BDB056800A0D799 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3CAD2E11BDB056800A0D799 /* Main.storyboard */; };
@@ -37,7 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F3B4A25B1BD2C7EE0001FBA8 /* movie_quote.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = movie_quote.mp3; path = ../../../../Downloads/movie_quote.mp3; sourceTree = "<group>"; };
 		F3B4A25D1BD2D6BE0001FBA8 /* PlaySoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundViewController.swift; sourceTree = "<group>"; };
 		F3CAD2A31BD9B52E00A0D799 /* RecordedAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedAudio.swift; sourceTree = "<group>"; };
 		F3CAD2E21BDB056800A0D799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				F3CAD2E11BDB056800A0D799 /* Main.storyboard */,
 				F3E64AEE1BD010710044C1B4 /* LaunchScreen.storyboard */,
 				F3E64AF11BD010710044C1B4 /* Info.plist */,
-				F3B4A25B1BD2C7EE0001FBA8 /* movie_quote.mp3 */,
 				F3E64B191BD01C860044C1B4 /* Assets.xcassets */,
 			);
 			path = "Pitch Perfect";
@@ -244,7 +241,6 @@
 			files = (
 				F3E64AF01BD010710044C1B4 /* LaunchScreen.storyboard in Resources */,
 				F3E64B1A1BD01C860044C1B4 /* Assets.xcassets in Resources */,
-				F3B4A25C1BD2C7EE0001FBA8 /* movie_quote.mp3 in Resources */,
 				F3CAD2E31BDB056800A0D799 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
