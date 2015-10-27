@@ -13,12 +13,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate, UIN
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    var audioRecorder: AVAudioRecorder!
+    var recordedAudio: RecordedAudio!
     
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
-    
-    var audioRecorder: AVAudioRecorder!
-    var recordedAudio: RecordedAudio!
     
     override func viewWillAppear(animated: Bool) {
         stopButton.hidden = true
@@ -29,7 +28,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate, UIN
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBOutlet weak var recordLabel: UILabel!

@@ -12,9 +12,7 @@ import AVFoundation
 class PlaySoundViewController: UIViewController, UINavigationControllerDelegate {
 
     var audioPlayer: AVAudioPlayer!
-    //create a variable as RecoredAudio to hold the audio that capture from the first view
     var receviedAudio: RecordedAudio!
-    //create audioEngine in order to manipulate audio
     var audioEngine: AVAudioEngine!
     var audioFile: AVAudioFile!
     
@@ -43,9 +41,7 @@ class PlaySoundViewController: UIViewController, UINavigationControllerDelegate 
     }
     
     @IBAction func SlowAudioButton(sender: UIButton) {
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stopAllAudio()
         audioPlayer.currentTime = 0.0
         audioPlayer.volume = 0.7
         audioPlayer.rate = 0.5
@@ -53,9 +49,7 @@ class PlaySoundViewController: UIViewController, UINavigationControllerDelegate 
     }
 
     @IBAction func FastAudioButton(sender: UIButton) {
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stopAllAudio()
         audioPlayer.currentTime = 0.0
         audioPlayer.volume = 0.7
         audioPlayer.rate = 1.5
@@ -66,36 +60,41 @@ class PlaySoundViewController: UIViewController, UINavigationControllerDelegate 
         playAudioWithVariablePitch(1000)
     }
     
-        func playAudioWithVariablePitch(pitch: Float) {
-            audioPlayer.stop()
-            audioEngine.stop()
-            audioEngine.reset()
-            
-            //Play the record sound
-            let audioPlayerNode = AVAudioPlayerNode()
-            audioEngine.attachNode(audioPlayerNode)
-            
-            let changePitchEffect = AVAudioUnitTimePitch()
-            //function playAudioWithVariablePitch make this pitch change and depend on different variables
-            changePitchEffect.pitch = pitch
-            audioEngine.attachNode(changePitchEffect)
-            audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
-            audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
-            audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-            
-            do{
-                try audioEngine.start()
-            } catch let error as NSError {
-                print(error.description)
-            }
-            audioPlayerNode.play()
-    }
-    
     @IBAction func playDarthvaderButton(sender: UIButton) {
         playAudioWithVariablePitch(-800)
     }
     
     @IBAction func stopAudioButton(sender: UIButton) {
+        stopAllAudio()
+    }
+    
+    //Use abstract repetitive blocks of code into reusable methods
+    func stopAllAudio(){
         audioPlayer.stop()
+        audioEngine.stop()
+        audioEngine.reset()
+    }
+    
+    func playAudioWithVariablePitch(pitch: Float) {
+        
+        stopAllAudio()
+        //Play the record sound
+        let audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attachNode(audioPlayerNode)
+        let changePitchEffect = AVAudioUnitTimePitch()
+        
+        //function playAudioWithVariablePitch make this pitch change and depend on different variables
+        changePitchEffect.pitch = pitch
+        audioEngine.attachNode(changePitchEffect)
+        audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
+        audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        
+        do{
+            try audioEngine.start()
+        } catch let error as NSError {
+            print(error.description)
+        }
+        audioPlayerNode.play()
     }
 }
