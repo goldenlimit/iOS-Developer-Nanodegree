@@ -175,7 +175,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="SlowAudioButton:" destination="oZl-cn-byQ" eventType="touchUpInside" id="Fmc-4k-Q6R"/>
+                                    <action selector="slowAudioButton:" destination="oZl-cn-byQ" eventType="touchUpInside" id="6JP-xp-dEy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FN9-vI-jPS">
@@ -195,7 +195,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="FastAudioButton:" destination="oZl-cn-byQ" eventType="touchUpInside" id="Hcb-2f-xPu"/>
+                                    <action selector="fastAudioButton:" destination="oZl-cn-byQ" eventType="touchUpInside" id="0Lk-FY-Cxf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1h-po-yjd">
@@ -269,7 +269,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="playDarthvaderButton:" destination="oZl-cn-byQ" eventType="touchUpInside" id="xBu-oK-MYI"/>
+                                    <action selector="playDarthvaderButton:" destination="oZl-cn-byQ" eventType="touchUpInside" id="MTK-eb-NBu"/>
                                 </connections>
                             </button>
                         </subviews>

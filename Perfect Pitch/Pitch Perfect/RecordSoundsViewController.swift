@@ -25,10 +25,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate, UIN
         recordButton.hidden = false
         tabRecordLabel.hidden = false
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var tabRecordLabel: UILabel!

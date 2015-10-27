@@ -5,7 +5,6 @@
 //  Created by Yue Wu on 10/17/15.
 //  Copyright © 2015 Yue Wu. All rights reserved.
 //
-
 import UIKit
 import AVFoundation
 
@@ -40,28 +39,22 @@ class PlaySoundViewController: UIViewController, UINavigationControllerDelegate 
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func SlowAudioButton(sender: UIButton) {
+    @IBAction func slowAudioButton(sender: AnyObject) {
         stopAllAudio()
-        audioPlayer.currentTime = 0.0
-        audioPlayer.volume = 0.7
-        audioPlayer.rate = 0.5
-        audioPlayer.play()
+        audioPlay(rate: 0.4)
     }
 
-    @IBAction func FastAudioButton(sender: UIButton) {
+    @IBAction func fastAudioButton(sender: AnyObject) {
         stopAllAudio()
-        audioPlayer.currentTime = 0.0
-        audioPlayer.volume = 0.7
-        audioPlayer.rate = 1.5
-        audioPlayer.play()
+        audioPlay(rate: 1.6)
     }
     
     @IBAction func playChipmunkButton(sender: UIButton) {
-        playAudioWithVariablePitch(1000)
+        playAudioWithVariablePitch(pitch:1000)
     }
     
     @IBAction func playDarthvaderButton(sender: UIButton) {
-        playAudioWithVariablePitch(-800)
+        playAudioWithVariablePitch(pitch:-800)
     }
     
     @IBAction func stopAudioButton(sender: UIButton) {
@@ -75,7 +68,14 @@ class PlaySoundViewController: UIViewController, UINavigationControllerDelegate 
         audioEngine.reset()
     }
     
-    func playAudioWithVariablePitch(pitch: Float) {
+    func audioPlay(rate rate:Float){
+        audioPlayer.currentTime = 0.0
+        audioPlayer.volume = 0.7
+        audioPlayer.rate = rate
+        audioPlayer.play()
+    }
+    
+    func playAudioWithVariablePitch(pitch pitch: Float) {
         
         stopAllAudio()
         //Play the record sound
