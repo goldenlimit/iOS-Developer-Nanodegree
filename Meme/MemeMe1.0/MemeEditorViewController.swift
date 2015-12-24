@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
-
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     //Outlets
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -19,7 +18,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var saveImage: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
 
-    var memes = [Meme]?()
     var memedImage: UIImage!
     var selectedTextField: UITextField!
     
@@ -28,13 +26,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
         topTextField.hidden = false
         bottomTextField.hidden = false
-        
-        //Set Content Mode for ImagPickerView
-        imagePickerView.contentMode = .ScaleAspectFill
+        cancelButton.enabled = false
         
         //Set the delegates for textField
-        self.topTextField.delegate = self
-        self.bottomTextField.delegate = self
+        topTextField.delegate = self
+        bottomTextField.delegate = self
         
         let memeTextAttributes = [
             NSStrokeColorAttributeName: UIColor.blackColor(),
@@ -77,22 +73,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func cancelButton(sender: AnyObject) {
         let alert = UIAlertController(
-            title: "Alert!",
-            message: "Are you sure to cancel this unsaved Meme?",
+            title: "Attention!",
+            message: "Are You sure to cancel this unsaved Meme?",
             preferredStyle: .Alert)
         
-        let okAction = UIAlertAction(title: "Ok", style: .Default) { (action:UIAlertAction!) -> Void in
+        let okAction = UIAlertAction(title: "Yes", style: .Default) { (action:UIAlertAction!) -> Void in
+            
+            // Chose "Yes" to remove the current image and allow user to pick another image 
+            // Disable the share image button as well
+            self.saveImage.enabled = false
+            self.cancelButton.enabled = false
             self.dismissViewControllerAnimated(true, completion: nil)
-            self.imagePickerView.removeFromSuperview()
+            self.imagePickerView.image = nil
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action:UIAlertAction!) -> Void in
+        let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel) { (action:UIAlertAction!) -> Void in
             print("Cancel Button Pressed")
         }
         
         alert.addAction(okAction)
         alert.addAction(cancelAction)
-        self.presentViewController(alert, animated: true, completion: nil)
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     @IBAction func pickAnImage(sender: AnyObject) {
@@ -101,6 +102,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePickerView.delegate = self
         imagePickerView.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         presentViewController(imagePickerView, animated: true, completion: nil)
+        cancelButton.enabled = true
     }
 
     @IBAction func pickImageFromCamera(sender: UIBarButtonItem) {
@@ -110,6 +112,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePickerView.sourceType = UIImagePickerControllerSourceType.Camera
         presentViewController(imagePickerView, animated: true, completion: { () -> Void in
             self.saveImage.enabled = true
+            self.cancelButton.enabled = true
             }
         )
     }
@@ -118,6 +121,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if let image = info [UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
+            //Set Content Mode for ImagPickerView
+            imagePickerView.contentMode = .ScaleAspectFill
+            
             dismissViewControllerAnimated(true, completion: { () -> Void in
                self.saveImage.enabled = true
             })
