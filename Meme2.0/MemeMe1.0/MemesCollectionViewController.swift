@@ -45,4 +45,9 @@ class MemeCollectionViewContoller:UIViewController, UICollectionViewDelegate, UI
         
         return cell
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        selectedIndex = indexPath.row
+        performSegueWithIdentifier("MemeDetail", sender: self)
+    }
 }

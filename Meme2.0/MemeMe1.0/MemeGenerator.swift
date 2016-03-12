@@ -14,6 +14,7 @@ class MemeGenerator {
     class func generateImageFromView(view: UIView) -> UIImage {
 
         // Render view to an image
+        
         UIGraphicsBeginImageContext(view.frame.size)
         view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage = UIGraphicsGetImageFromCurrentImageContext()

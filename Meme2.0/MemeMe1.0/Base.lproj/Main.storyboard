@@ -34,11 +34,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hbg-iK-Gxc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hbg-iK-Gxc">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mms-7k-Pat">
-                                <rect key="frame" x="0.0" y="507" width="600" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mms-7k-Pat">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="camera" id="X81-gO-YR3">
                                         <connections>
@@ -66,53 +66,41 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Bottom" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="jgd-u5-9se">
-                                <rect key="frame" x="150" y="429" width="300" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="8Rg-PC-IFa"/>
-                                    <constraint firstAttribute="width" constant="300" id="Z46-BE-Xpu"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Bottom Text" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="jgd-u5-9se">
+                                <rect key="frame" x="0.0" y="516" width="600" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardType="alphabet"/>
                                 <variation key="widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="50" y="484" width="300" height="40"/>
-                                    <mask key="constraints">
-                                        <exclude reference="Z46-BE-Xpu"/>
-                                    </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Top" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m12-fg-8wu">
-                                <rect key="frame" x="150" y="99" width="300" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="67x-VX-LZM"/>
-                                    <constraint firstAttribute="height" constant="30" id="JUk-5k-t72"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Top Text" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m12-fg-8wu">
+                                <rect key="frame" x="0.0" y="64" width="600" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="JUk-5k-t72"/>
-                                    </mask>
-                                </variation>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GRm-pJ-56B" firstAttribute="leading" secondItem="mms-7k-Pat" secondAttribute="leading" id="0SE-df-0Xv"/>
                             <constraint firstItem="GRm-pJ-56B" firstAttribute="trailing" secondItem="mms-7k-Pat" secondAttribute="trailing" id="3ea-Gz-wsp"/>
-                            <constraint firstItem="GRm-pJ-56B" firstAttribute="bottom" secondItem="Hbg-iK-Gxc" secondAttribute="top" id="BFv-GL-z2i"/>
+                            <constraint firstItem="GRm-pJ-56B" firstAttribute="bottom" secondItem="Hbg-iK-Gxc" secondAttribute="top" constant="-20" id="BFv-GL-z2i"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mms-7k-Pat" secondAttribute="bottom" id="DkI-JF-j8D"/>
                             <constraint firstAttribute="trailing" secondItem="Hbg-iK-Gxc" secondAttribute="trailing" id="GAs-tK-ewX"/>
-                            <constraint firstItem="mms-7k-Pat" firstAttribute="top" secondItem="jgd-u5-9se" secondAttribute="bottom" constant="48" id="GI6-ab-Ugz"/>
+                            <constraint firstItem="mms-7k-Pat" firstAttribute="top" secondItem="jgd-u5-9se" secondAttribute="bottom" id="GI6-ab-Ugz"/>
                             <constraint firstItem="GRm-pJ-56B" firstAttribute="leading" secondItem="Hbg-iK-Gxc" secondAttribute="leading" id="Kj5-3A-Ucc"/>
                             <constraint firstItem="m12-fg-8wu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N2K-9M-1HG"/>
-                            <constraint firstItem="Hbg-iK-Gxc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="O9z-0X-awg"/>
+                            <constraint firstItem="m12-fg-8wu" firstAttribute="trailing" secondItem="Hbg-iK-Gxc" secondAttribute="trailing" id="NTJ-5u-Ohh"/>
+                            <constraint firstItem="Hbg-iK-Gxc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="10" id="O9z-0X-awg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="m12-fg-8wu" secondAttribute="trailing" constant="-20" id="QoD-rR-Dfi"/>
                             <constraint firstItem="GRm-pJ-56B" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SgO-6s-tsL"/>
                             <constraint firstItem="Hbg-iK-Gxc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Xfn-mC-SkI"/>
-                            <constraint firstItem="m12-fg-8wu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="92" id="eq4-rN-jqN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jgd-u5-9se" secondAttribute="trailing" constant="-20" id="eT1-Y8-aUc"/>
+                            <constraint firstItem="m12-fg-8wu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="eq4-rN-jqN"/>
                             <constraint firstItem="Hbg-iK-Gxc" firstAttribute="trailing" secondItem="mms-7k-Pat" secondAttribute="trailing" id="gSt-rC-p8r"/>
+                            <constraint firstItem="m12-fg-8wu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="gUh-ps-m3i"/>
                             <constraint firstItem="jgd-u5-9se" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ucH-b5-dki"/>
-                            <constraint firstItem="m12-fg-8wu" firstAttribute="centerX" secondItem="jgd-u5-9se" secondAttribute="centerX" id="vDQ-rZ-ZJb"/>
+                            <constraint firstItem="jgd-u5-9se" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="xFe-KU-THt"/>
                         </constraints>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
