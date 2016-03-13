@@ -49,10 +49,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         textStyle.alignment = .Center
         
         let memeTextAttributes = [
-            NSStrokeColorAttributeName: UIColor.blackColor(),
-            NSForegroundColorAttributeName: UIColor.whiteColor(),
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName: -3.0,
+            NSStrokeWidthAttributeName : -3.0,
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSParagraphStyleAttributeName: textStyle
         ]
         
         topTextField.defaultTextAttributes = memeTextAttributes
@@ -165,12 +166,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func subscribeToKeyboardNotifications() {
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func unsubscribeToKeyboardNotifications() {
-        //NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
@@ -180,7 +181,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         let memedImage = MemeGenerator.generateImageFromView(view)
         
-        if let meme = editingMeme {
+        if var meme = editingMeme {
             
             meme.updateWith(topTextField.text!, bottomText: bottomTextField.text!, memedImage: memedImage)
         }

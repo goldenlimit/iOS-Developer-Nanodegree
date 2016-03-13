@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Meme {
+struct Meme {
     var topText: String!
     var bottomText: String!
     var image: UIImage!
@@ -24,7 +24,7 @@ class Meme {
         self.memedImage = memedImage
 }
 
-    func updateWith(topText: String, bottomText: String, memedImage: UIImage) {
+    mutating func updateWith(topText: String, bottomText: String, memedImage: UIImage) {
         
         self.topText = topText
         self.bottomText = bottomText

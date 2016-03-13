@@ -69,5 +69,9 @@ class MemesTableViewController: UIViewController, UITableViewDataSource, UITable
             MemesStorage.defaultStorage.deleteMemeAtIndex(indexPath.row)
             tableView.reloadData()
         }
-    }}
+    }
+    
+    
+    
+}
 
